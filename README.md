@@ -1,13 +1,8 @@
-# Sample Hardhat Project
+# Twut Hardhat Project
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+Twut smart-contracts to be deployed on LUKSO blockchain. The contracts are using LSP7 / LSP8 standards.
 
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.ts
-```
+- create a `.env` file with your `PRIVATE_KEY`
+- run `npm i`
+- run `npm run build` to compile contracts & types
+- run `npx hardhat run scripts/deploy.ts` to deploy the contract on LUKSO testnet
