@@ -1,5 +1,3 @@
-import { ethers as HardhatEthers } from "hardhat";
-import { readFile } from "fs/promises";
 import hre from "hardhat";
 import { ethers } from "ethers";
 import * as dotenv from "dotenv";
@@ -19,7 +17,7 @@ async function main() {
   );
   // setup signer (the browser extension controller)
   const signer = new ethers.Wallet(process.env.PRIVATE_KEY as string, provider);
-  console.log("Deploying contracts with the account: ", signer.address);
+  console.log("Deploying contracts with EOA: ", signer.address);
 
   // load the associated UP
   const UP = new ethers.Contract(UP_ADDR, LSP0ABI.abi, provider);
