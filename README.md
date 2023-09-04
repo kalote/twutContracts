@@ -9,6 +9,6 @@ Twut smart-contracts to be deployed on LUKSO blockchain. The contracts are using
 
 ## Info
 
-- Twut token (LSP7) address: 0xef48c8a199ae3a006d007e33ba756e21a64be253
-- Twut NFT (LSP8) address: 0xb2b35ab420bd6bf3778976335619616050c85b8f
-- Main contract address: 0x562b6692f59bf8c3783b611d0c739cb02a5680cb
+- Twut token (LSP7) address: 0x5bc59319c3144b2d25ae7338b09049efb6cd038f
+- Twut NFT (LSP8) address: 0x1880137f29eb39d24c4581c816e0d9286ac6782d
+- Main contract address: 0xdd130971acd71deaef80b3431a0e5b177b5164b3
