@@ -8,7 +8,6 @@ dotenv.config();
 const COST_PER_LIKE = 10;
 const COST_PER_TWUT = 30;
 const COST_PER_RETWUT = 20;
-const UP_ADDR = '0xaca4e32D1Fed6F23384BFe4FebB9f4AaFE644d5f';
 
 async function main() {
   // setup provider
@@ -18,7 +17,7 @@ async function main() {
   console.log('Deploying contracts with EOA: ', signer.address);
 
   // load the associated UP
-  const UP = new ethers.Contract(UP_ADDR, LSP0ABI.abi, signer);
+  const UP = new ethers.Contract(process.env.UP_ADDR as string, LSP0ABI.abi, signer);
 
   /**
    * Twut LSP7 Token

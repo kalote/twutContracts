@@ -16,6 +16,12 @@ contract TwutMain is ReentrancyGuard {
   uint256 costPerTwut;
   uint256 costPerLike;
   uint256 costPerRetwut;
+  address public owner;
+
+  modifier onlyOwner() {
+    require (msg.sender == owner);
+    _;
+  }
 
   constructor(
     uint256 _costPerLike, 
@@ -28,6 +34,7 @@ contract TwutMain is ReentrancyGuard {
       costPerRetwut = _costPerRetwut;
       TwutToken = ITwutLSP7(_twutToken);
       TwutNFT = ILSP8Mintable(_twutNFT);
+      owner = msg.sender;
   }
 
   function twut(bytes32 _tokenId) public nonReentrant {
@@ -68,5 +75,9 @@ contract TwutMain is ReentrancyGuard {
     );
     uint256 amountToBeGiven = msg.value / priceOfToken;
     TwutToken.mint(msg.sender, amountToBeGiven, true, '0x');
+  }
+
+  function withdraw() public onlyOwner {
+    payable(owner).transfer(address(this).balance);
   }
 }
