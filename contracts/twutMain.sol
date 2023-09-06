@@ -5,6 +5,8 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@lukso/lsp-smart-contracts/contracts/LSP7DigitalAsset/presets/ILSP7Mintable.sol";
 import "@lukso/lsp-smart-contracts/contracts/LSP8IdentifiableDigitalAsset/presets/ILSP8Mintable.sol";
 
+import "hardhat/console.sol";
+
 interface ITwutLSP7 is ILSP7Mintable {
   function burn(address from, uint256 amount, bytes memory data) external;
 }

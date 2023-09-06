@@ -35,6 +35,9 @@ describe('Twut Main contract', function () {
       await twutToken.getAddress(),
       await twutNFT.getAddress(),
     );
+    // transfer ownership of NFT contract to Main contract
+    const transferOwner = await twutNFT.transferOwnership(await twutMain.getAddress());
+    transferOwner.wait();
   });
 
   describe('Twut function', () => {
@@ -44,8 +47,6 @@ describe('Twut Main contract', function () {
     });
 
     it('successful twut', async () => {
-      const TOKEN_ID = 1;
-
       // mint
       const mintTx = await twutToken.mint(user.address, AMOUNT_TOKEN, true, '0x');
       mintTx.wait();
@@ -56,15 +57,7 @@ describe('Twut Main contract', function () {
         .authorizeOperator(await twutMain.getAddress(), AMOUNT_TOKEN);
       authorizeTx.wait();
 
-      // authorize LSP8
-      // fail due to nonExistentTokenId
-      // const authorizeNFTTx = await twutNFT
-      //   .connect(user)
-      //   .authorizeOperator(await twutMain.getAddress(), ethers.encodeBytes32String('1'));
-      // authorizeNFTTx.wait();
-
       // // twut
-      // fail due to Ownable: caller is not the owner
       const twutTx = await twutMain.connect(user).twut(ethers.encodeBytes32String('1'));
       twutTx.wait();
 
